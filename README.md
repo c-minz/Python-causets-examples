@@ -135,7 +135,7 @@ The script file `lightcone_animations.py` was used to create animations that can
 # Other scripts
 The files `operators_causal.py` and `pastinf_sizes.py` are scripts that produce small data sets for plots and a data table given in my PhD thesis [1] and the publication [2].
 
-[1] C. Minz, _Algebraic Field Theory on Causal Sets: Local Structures and Quantization Methods_, University of York (2021).
+[1] C. Minz, _Algebraic Field Theory on Causal Sets: Local Structures and Quantization Methods_, PhD thesis, University of York (2021).
 
 [2] C. J. Fewster, E. Hawkins, C. Minz, and K. Rejzner, _Local structure of sprinkled causal sets_, Phys. Rev. D 103, 086020 (2021). https://doi.org/10.1103/PhysRevD.103.086020
 
