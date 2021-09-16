@@ -6,48 +6,60 @@ The script file `lightcone_animations.py` was used to create animations that can
 
 **Simplices in de Sitter, Minkowski, and Schwarzschild spacetimes**
 
-<table style="display:inline-block; width:400px">
-	<tr>
-		<td><a href="https://youtu.be/210CBU9gs7g"><img alt="de Sitter 1-simplex" src="thumbnails/de Sitter 1-simplex.png" /></a></td>
-	<tr>
-		<td>Lightcones of a causal 1-simplex embedded in 2-dimensional de Sitter spacetime</td>
-	</tr>
-</table>
-<table style="display:inline-block; width:400px">
-	<tr>
-		<td><a href="https://youtu.be/MHfqVEsMl9k"><img alt="de Sitter 2-simplex" src="thumbnails/de Sitter 2-simplex.png" /></a></td>
-	<tr>
-		<td>Lightcones of a causal 2-simplex embedded in 3-dimensional de Sitter spacetime</td>
-	</tr>
-</table>
-<table style="display:inline-block; width:400px">
-	<tr>
-		<td><a href="https://youtu.be/-Pp2Qjt0Wo0"><img alt="Minkowski 1-simplex" src="thumbnails/Minkowski 1-simplex.png" /></a></td>
-	<tr>
-		<td>Lightcones of a causal 1-simplex embedded in 2-dimensional Minkowski spacetime</td>
-	</tr>
-</table>
-<table style="display:inline-block; width:400px">
-	<tr>
-		<td><a href="https://youtu.be/2LnYMXsoCIc"><img alt="Minkowski 2-simplex" src="thumbnails/Minkowski 2-simplex.png" /></a></td>
-	<tr>
-		<td>Lightcones of a causal 2-simplex embedded in 3-dimensional Minkowski spacetime</td>
-	</tr>
-</table>
-<table style="display:inline-block; width:400px">
-	<tr>
-		<td><a href="https://youtu.be/EfA2KGUcr2A"><img alt="Minkowski 3-simplex" src="thumbnails/Minkowski 3-simplex.png" /></a></td>
-	<tr>
-		<td>Lightcones of a causal 3-simplex embedded in 4-dimensional Minkowski spacetime</td>
-	</tr>
-</table>
-<table style="display:inline-block; width:400px">
-	<tr>
-		<td><a href="https://youtu.be/V6itk-HHwtY"><img alt="Schwarzschild 1-simplex" src="thumbnails/Schwarzschild 1-simplex.png" /></a></td>
-	<tr>
-		<td>Lightcones of a causal 1-simplex embedded in 2-dimensional Schwarzschild spacetime</td>
-	</tr>
-</table>
+<div style="width:425px">
+	<table style="display:inline-block">
+		<tr>
+			<td><a href="https://youtu.be/210CBU9gs7g"><img alt="de Sitter 1-simplex" src="thumbnails/de Sitter 1-simplex.png" /></a></td>
+		<tr>
+			<td>Lightcones of a causal 1-simplex embedded in 2-dimensional de Sitter spacetime</td>
+		</tr>
+	</table>
+</div>
+<div style="width:425px">
+	<table style="display:inline-block">
+		<tr>
+			<td><a href="https://youtu.be/MHfqVEsMl9k"><img alt="de Sitter 2-simplex" src="thumbnails/de Sitter 2-simplex.png" /></a></td>
+		<tr>
+			<td>Lightcones of a causal 2-simplex embedded in 3-dimensional de Sitter spacetime</td>
+		</tr>
+	</table>
+</div>
+<div style="width:425px">
+	<table style="display:inline-block; width:400px">
+		<tr>
+			<td><a href="https://youtu.be/-Pp2Qjt0Wo0"><img alt="Minkowski 1-simplex" src="thumbnails/Minkowski 1-simplex.png" /></a></td>
+		<tr>
+			<td>Lightcones of a causal 1-simplex embedded in 2-dimensional Minkowski spacetime</td>
+		</tr>
+	</table>
+</div>
+<div style="width:425px">
+	<table style="display:inline-block; width:400px">
+		<tr>
+			<td><a href="https://youtu.be/2LnYMXsoCIc"><img alt="Minkowski 2-simplex" src="thumbnails/Minkowski 2-simplex.png" /></a></td>
+		<tr>
+			<td>Lightcones of a causal 2-simplex embedded in 3-dimensional Minkowski spacetime</td>
+		</tr>
+	</table>
+</div>
+<div style="width:425px">
+	<table style="display:inline-block; width:400px">
+		<tr>
+			<td><a href="https://youtu.be/EfA2KGUcr2A"><img alt="Minkowski 3-simplex" src="thumbnails/Minkowski 3-simplex.png" /></a></td>
+		<tr>
+			<td>Lightcones of a causal 3-simplex embedded in 4-dimensional Minkowski spacetime</td>
+		</tr>
+	</table>
+</div>
+<div style="width:425px">
+	<table style="display:inline-block; width:400px">
+		<tr>
+			<td><a href="https://youtu.be/V6itk-HHwtY"><img alt="Schwarzschild 1-simplex" src="thumbnails/Schwarzschild 1-simplex.png" /></a></td>
+		<tr>
+			<td>Lightcones of a causal 1-simplex embedded in 2-dimensional Schwarzschild spacetime</td>
+		</tr>
+	</table>
+</div>
 
 **Subsets of lattices in Minkowski spacetime**
 
