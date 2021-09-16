@@ -293,7 +293,7 @@ for M_name, name, perm, coords in causets_data:
                 ax_main.set_title(section_t, color=foregroundcolor,
                                   fontstyle=section_fontstyle, fontsize=labelfontsize)
             if len(Pmain_dims) > 2:
-                ax_main_panecolor: Tuple[float] = (0.0, 0.0, 0.0, 0.0)
+                ax_main_panecolor: Tuple[float, ...] = (0.0, 0.0, 0.0, 0.0)
                 ax_main.view_init(elev=0.0, azim=t * 360 / t_len)
                 ax_main.xaxis.set_pane_color(ax_main_panecolor)
                 ax_main.yaxis.set_pane_color(ax_main_panecolor)

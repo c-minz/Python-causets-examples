@@ -92,10 +92,10 @@ def simulated_grandcanonical(lam: int) -> Tuple[float, ...]:
 
 
 print('Computing relative cardinality for past infinites ...')
-ana_canC1: List[Tuple[float, ...]] = [analytic_canonicalC1(n) for n in N]
-ana_canC2: List[Tuple[float, ...]] = [analytic_canonicalC2(n) for n in N]
-ana_grcC1: List[Tuple[float, ...]] = [analytic_grandcanonicalC1(l) for l in N]
-ana_grcC2: List[Tuple[float, ...]] = [analytic_grandcanonicalC2(l) for l in N]
+ana_canC1: List[float] = [analytic_canonicalC1(n) for n in N]
+ana_canC2: List[float] = [analytic_canonicalC2(n) for n in N]
+ana_grcC1: List[float] = [analytic_grandcanonicalC1(l) for l in N]
+ana_grcC2: List[float] = [analytic_grandcanonicalC2(l) for l in N]
 print('Simulating relative cardinality for past infinites ...')
 sim_can: List[Tuple[float, ...]] = [simulated_canonical(n) for n in N]
 sim_grc: List[Tuple[float, ...]] = [simulated_grandcanonical(n) for n in N]
