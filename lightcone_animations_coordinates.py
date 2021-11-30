@@ -74,6 +74,62 @@ def get_2simplex(edge: float, eps: float = default_eps, spacetime: str = '') -> 
     return ('2-simplex', P, C)
 
 
+def get_2simplexFlipped(edge: float, eps: float = default_eps, spacetime: str = '') -> \
+        Tuple[str, List[int], List[List[float]]]:
+    '''
+    Returns the name, event permutation (for Hasse diagrams), and event 
+    coordinates of a 2-simplex with one edge flipped.
+    The first argument set the size, the optional second argument sets 
+    a small time offset for each layer.
+    '''
+    P: List[int] = [1, 5, 3, 6, 2, 4]
+    r: float = edge / sqrt(3.)  # radius (from vertex to center)
+    r_h: float = r / 2  # radius half
+    a: float = edge / 2
+    t: np.ndarray
+    if spacetime in {'black hole', 'Schwarzschild'}:
+        raise ValueError('2D black hole spacetime not supported')
+    elif spacetime == 'de Sitter':
+        t = np.array([-1.5 * a, 0, 1.5 * a]) * (1 + eps)
+    else:
+        t = np.array([-a, 0, a]) * (1 + eps)
+    C: List[List[float]] = [[t[0], 0., -r_h],
+                            [t[1], -a, -r_h],
+                            [t[1], 0., r],
+                            [t[2], -a / 2, r_h / 2],
+                            [t[1], a, -r_h],
+                            [t[2], a / 2, r_h / 2]]
+    return ('2-simplex with one edge flipped', P, C)
+
+
+def get_2simplexFlipped2(edge: float, eps: float = default_eps, spacetime: str = '') -> \
+        Tuple[str, List[int], List[List[float]]]:
+    '''
+    Returns the name, event permutation (for Hasse diagrams), and event 
+    coordinates of a 2-simplex with two edges flipped.
+    The first argument set the size, the optional second argument sets 
+    a small time offset for each layer.
+    '''
+    P: List[int] = [3, 5, 1, 4, 2, 6]
+    r: float = edge / sqrt(3.)  # radius (from vertex to center)
+    r_h: float = r / 2  # radius half
+    a: float = edge / 2
+    t: np.ndarray
+    if spacetime in {'black hole', 'Schwarzschild'}:
+        raise ValueError('2D black hole spacetime not supported')
+    elif spacetime == 'de Sitter':
+        t = np.array([-1.5 * a, 0, 1.5 * a]) * (1 + eps)
+    else:
+        t = np.array([-a, 0, a]) * (1 + eps)
+    C: List[List[float]] = [[t[0], -a / 2, r_h / 2],
+                            [t[1], -a, -r_h],
+                            [t[0], a / 2, r_h / 2],
+                            [t[1], 0., r],
+                            [t[1], a, -r_h],
+                            [t[2], 0., -r_h]]
+    return ('2-simplex with two edges flipped', P, C)
+
+
 def get_3simplex(edge: float, eps: float = default_eps, spacetime: str = '') -> \
         Tuple[str, List[int], List[List[float]]]:
     '''

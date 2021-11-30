@@ -36,6 +36,20 @@ The script file `lightcone_animations.py` was used to create animations that can
 </table>
 <table style="display:inline-block">
 	<tr>
+		<td><a href="https://youtu.be/BDxuvpTmMMo"><img alt="Lightcones of a causal 2-simplex with one edge flipped embedded in 3-dimensional Minkowski spacetime" src="thumbnails/Minkowski 2-simplex with one edge flipped.png" /></a></td>
+	<tr>
+		<td>Minkowski spacetime, 2-simplex with one edge flipped</td>
+	</tr>
+</table>
+<table style="display:inline-block">
+	<tr>
+		<td><a href="https://youtu.be/m6kAMXJIp3E"><img alt="Lightcones of a causal 2-simplex with two edges flipped embedded in 3-dimensional Minkowski spacetime" src="thumbnails/Minkowski 2-simplex with two edges flipped.png" /></a></td>
+	<tr>
+		<td>Minkowski spacetime, 2-simplex with two edges flipped</td>
+	</tr>
+</table>
+<table style="display:inline-block">
+	<tr>
 		<td><a href="https://youtu.be/EfA2KGUcr2A"><img alt="Lightcones of a causal 3-simplex embedded in 4-dimensional Minkowski spacetime" src="thumbnails/Minkowski 3-simplex.png" /></a></td>
 	<tr>
 		<td>Minkowski spacetime, 3-simplex</td>
