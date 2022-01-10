@@ -21,14 +21,19 @@ mpl.rcParams['animation.ffmpeg_path'] = \
 
 # ==============================
 # Causet and spacetime:
-dt: float = 0.002  # time step: 0.002 for video length of about 20s
+dt: float = 0.02  # time step: 0.002 for video length of about 20s
 causets_data: List[Tuple[str, str, List[int], List[List[float]]]] = [
     #('de Sitter', *LAC.get_1simplex(1.2, spacetime='de Sitter')),
     #('de Sitter', *LAC.get_2simplex(1.2, spacetime='de Sitter')),
     #('Minkowski', *LAC.get_1simplex(1.2, spacetime='Minkowski')),
     #('Minkowski', *LAC.get_2simplex(1.2, spacetime='Minkowski')),
-    ('Minkowski', *LAC.get_2simplexFlipped(1.2, spacetime='Minkowski')),
-    ('Minkowski', *LAC.get_2simplexFlipped2(1.2, spacetime='Minkowski')),
+    #('Minkowski', *LAC.get_2simplexFlipped(1.2, spacetime='Minkowski')),
+    #('Minkowski', *LAC.get_2simplexFlipped2(1.2, spacetime='Minkowski')),
+    #('Minkowski', *LAC.get_2simplexRotated3(1.2, 1, spacetime='Minkowski')),
+    #('Minkowski', *LAC.get_2simplexRotated3(1.2, -1, spacetime='Minkowski')),
+    #('Minkowski', *LAC.get_2simplexRotated5(1.2, 1, spacetime='Minkowski')),
+    #('Minkowski', *LAC.get_2simplexRotated5(1.2, -1, spacetime='Minkowski')),
+    ('Minkowski', *LAC.get_2simplexRotated5(1.2, 0, spacetime='Minkowski')),
     #('Minkowski', *LAC.get_3simplex(1.2, spacetime='Minkowski')),
     #('Minkowski', *LAC.get_latticeD2(0.6, spacetime='Minkowski')),
     #('Minkowski', *LAC.get_latticeD3_oct(0.6, spacetime='Minkowski')),
@@ -90,9 +95,11 @@ shapes.default_samplingsize = 64
 
 M_name: str
 name: str
+name_inline: str
 perm: List[int]
 coords: List[List[float]]
 for M_name, name, perm, coords in causets_data:
+    name_inline = name.replace('\n', '')
     # ==============================
     # Create objects:
     M_shape: Union[shapes.CoordinateShape, None] = None  # default
@@ -106,8 +113,8 @@ for M_name, name, perm, coords in causets_data:
                                        shape=M_shape)
     M: spacetimes.Spacetime = C.Spacetime
     M_shape = C.Shape
-    output_file: str = f'{M_name} {name}'
-    title: str = 'Lightcones of a causal ' + name + ' embedded in ' + \
+    output_file: str = f'{M_name} {name_inline}'
+    title: str = 'Lightcones of a ' + name_inline + ' embedded in ' + \
         str(M.Dim) + '-dimensional ' + M_name + ' spacetime'
     C_diagram: List[CausetEvent] = [C.find(i) for i in perm] if perm else []
 
@@ -120,6 +127,7 @@ for M_name, name, perm, coords in causets_data:
                                  'markerfacecolor': thumbnail_eventcolor},
                          links={'linewidth': linkwidth,
                                 'color': thumbnail_linkcolor},
+                         linkgapsize=2 * eventsize,
                          axislim={'xlim': [-1.1, 1.1], 'ylim': [-1.1, 1.1]})
         plt.suptitle(title, x=0.5, y=0.1, va='bottom',
                      fontsize=thumbnail_fontsize, color=foregroundcolor,
@@ -140,9 +148,9 @@ for M_name, name, perm, coords in causets_data:
         t_len: float = t_end - t_start
         t_depth: float = 1.00 if M_name == 'Minkowski' else 1.75
         infotext: str = 'Above: Hasse diagram of \n' if perm else '\n'
-        infotext = infotext + ('a subset of a causal \n' + name
+        infotext = infotext + ('a subset of a \n' + name
                                if name.find('lattice') >= 0
-                               else 'a causal ' + name + '\n')
+                               else 'a ' + name + '\n')
         infotext = infotext + '\n\n\n\n' + \
             'On the right: animated \n' + \
             'slice through the past and \n' + \
@@ -197,8 +205,8 @@ for M_name, name, perm, coords in causets_data:
         if C_diagram:
             cplt.plotDiagram(C_diagram, perm,
                              plotAxes=fig.add_subplot(gs[0, 0:5], alpha=0.0),
-                             labels=eventlabels, events={
-                                 'markerfacecolor': eventcolor},
+                             labels=eventlabels, linkgapsize=10.0,
+                             events={'markerfacecolor': eventcolor},
                              axislim={'xlim': [-1.1, 1.1], 'ylim': [-1.1, 1.1]})
 
         Pmain: Callable[[float], Dict[str, Any]]
@@ -322,7 +330,7 @@ for M_name, name, perm, coords in causets_data:
                 print('#', end='')
                 i += 1
 
-        print(f'Generating animation ({name}, {M_name}):')
+        print(f'Generating animation ({name_inline}, {M_name}):')
         print('0% |' + '_' * progressbar_len + '| 100%\n   |', end='')
         anim = animation.FuncAnimation(fig, animator, frames=t_range)
         animwriter = animation.FFMpegWriter(fps=output_fps)

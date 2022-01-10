@@ -130,6 +130,82 @@ def get_2simplexFlipped2(edge: float, eps: float = default_eps, spacetime: str =
     return ('2-simplex with two edges flipped', P, C)
 
 
+def get_2simplexRotated3(edge: float, s: int = 1, eps: float = default_eps,
+                         spacetime: str = '') -> \
+        Tuple[str, List[int], List[List[float]]]:
+    '''
+    Returns the name, event permutation (for Hasse diagrams), and event 
+    coordinates of a 2-simplex rotating right/left-handed (3 steps).
+    The rotation is right-handed if s == 1, it is left-handed if s == -1.
+    The first argument set the size, the optional second argument sets 
+    a small time offset for each layer.
+    '''
+    P: List[int] = [6, 3, 5, 9, 7, 1, 8, 2, 4]
+    r: float = edge / sqrt(3.)  # radius (from vertex to center)
+    r_h: float = r / 2  # radius half
+    a: float = edge / 2
+    tstep: float = 2. * r / (sqrt(6.) + sqrt(2.))
+    t: np.ndarray
+    if spacetime in {'black hole', 'Schwarzschild'}:
+        raise ValueError('2D black hole spacetime not supported')
+    elif spacetime == 'de Sitter':
+        t = np.array([-1.5, 0.0, 1.5]) * tstep * (1 + eps)
+    else:
+        t = np.array([-1.0, 0.0, 1.0]) * tstep * (1 + eps)
+    C: List[List[float]] = [[t[0], -s * a, -r_h],
+                            [t[1], -s * r_h, -a],
+                            [t[0], s * a, -r_h],
+                            [t[2], 0., -r],
+                            [t[1], s * r, 0.],
+                            [t[0], 0., r],
+                            [t[1], -s * r_h, a],
+                            [t[2], -s * a, r_h],
+                            [t[2], s * a, r_h]]
+    orientation: str = 'right' if s == 1 else 'left'
+    return ('2-simplex rotating \n' + orientation + '-handed (3 steps)', P, C)
+
+
+def get_2simplexRotated5(edge: float, s: int = 1, eps: float = default_eps,
+                         spacetime: str = '') -> \
+        Tuple[str, List[int], List[List[float]]]:
+    '''
+    Returns the name, event permutation (for Hasse diagrams), and event 
+    coordinates of a 2-simplex rotating right/left-handed (5 steps).
+    The rotation is right-handed if s == 1, it is left-handed if s == -1.
+    The first argument set the size, the optional second argument sets 
+    a small time offset for each layer.
+    '''
+    P: List[int] = [7, 10, 3, 1, 12, 5, 2, 14, 8, 11, 4, 15, 13, 6, 9]
+    r: float = edge / sqrt(3.)  # radius (from vertex to center)
+    r_h: float = r / 2  # radius half
+    a: float = edge / 2
+    tstep: float = 2. * r / (sqrt(6.) + sqrt(2.))
+    t: np.ndarray
+    if spacetime in {'black hole', 'Schwarzschild'}:
+        raise ValueError('2D black hole spacetime not supported')
+    elif spacetime == 'de Sitter':
+        t = np.array([-3.0, -1.5, 0.0, 1.5, 3.0]) * tstep * (1 + eps)
+    else:
+        t = np.array([-2.0, -1.0, 0.0, 1.0, 2.0]) * tstep * (1 + eps)
+    C: List[List[float]] = [[t[0], -s * a, -r_h],
+                            [t[1], -s * r_h, -a],
+                            [t[0], s * a, -r_h],
+                            [t[2], 0., -r],
+                            [t[1], s * r, 0.],
+                            [t[3], s * r_h, -a],
+                            [t[0], 0., r],
+                            [t[2], s * a, r_h],
+                            [t[4], s * a, -r_h],
+                            [t[1], -s * r_h, a],
+                            [t[3], s * r_h, a],
+                            [t[2], -s * a, r_h],
+                            [t[4], 0., r],
+                            [t[3], -s * r, 0.],
+                            [t[4], -s * a, -r_h]]
+    orientation: str = 'right' if s == 1 else 'left'
+    return ('2-simplex rotating \n' + orientation + '-handed (5 steps)', P, C)
+
+
 def get_3simplex(edge: float, eps: float = default_eps, spacetime: str = '') -> \
         Tuple[str, List[int], List[List[float]]]:
     '''

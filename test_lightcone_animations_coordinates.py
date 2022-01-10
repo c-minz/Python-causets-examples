@@ -9,6 +9,8 @@ from __future__ import annotations
 from typing import List
 import unittest
 import lightcone_animations_coordinates as LAC
+import numpy as np
+from causets.causet import Causet
 from causets.embeddedcauset import EmbeddedCauset
 import causets.causetplotting as cplt
 from matplotlib import pyplot as plt
@@ -26,7 +28,7 @@ class TestCauset(unittest.TestCase):
         name: str
         perm: List[int]
         coords: List[List[float]]
-        name, perm, coords = LAC.get_slab_finf(0.3)
+        name, perm, coords = LAC.get_latticeD3_slabfinf(0.3)
 
         C: EmbeddedCauset = EmbeddedCauset(coordinates=coords)
 #         cplt.plot(C, dims=[1, 2, 0], labels=True,
